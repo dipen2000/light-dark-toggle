@@ -1,0 +1,93 @@
+*{
+    margin : 0;
+}
+body{
+    --accent-color : orangered;
+    --background-color : white;
+    --text-color : black;
+    --button-text-color : var(--background-color);
+    --transition-delay : 1s;
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    height : 100vh;
+    /* border : 3px solid red; */
+    overflow : hidden;
+    background-color : var(--background-color);
+    transition : var(--transition-delay);
+    color : var(--text-color);
+}
+
+body.dark{
+    --accent-color: #D0D066;
+    --background-color: #333;
+    --text-color: white;
+}
+.heading{
+    font-family: 'Roboto Slab', serif;
+}
+#btn{
+    cursor : pointer;
+    margin : 2em;
+    border-radius : 50px;
+    display : flex;
+    align-items : center;
+    justify-content: center;
+    padding : 1em;
+    font-size: 1.2rem;
+    background-color : var(--accent-color);
+    color : var(--button-text-color); 
+    border : none;
+    outline : none;
+    transition : transform calc(var(--transition-delay) - 0.5s);
+    transform: scale(1);
+}
+#btn:hover,
+#btn:focus{
+    transform : scale(1.1);
+}
+
+.sun-moon{
+    height : 30px;
+    width : 30px;
+    margin-right: 0.5em;
+}
+#sun{
+    position : absolute;
+    top : 5%;
+    opacity: 1;
+    transition: opacity,fill, var(--transition-delay);
+    fill : var(--accent-color);
+}
+
+.dark #sun{
+    opacity: 0;
+}
+
+.dark #moon{
+    opacity: 1;
+}
+#moon{
+    position : absolute;
+    bottom : 5%;
+    opacity : 0;
+    transition: opacity,fill, var(--transition-delay);
+    fill : var(--accent-color);
+    transform : rotate(180deg);
+}
+
+
+.sun-moon-container{
+     --rotation: 0;
+     position: absolute;
+     pointer-events: none;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     top: 0;
+     height: 200vmin;
+     transform: rotate(calc(var(--rotation)*1deg));
+     transition: transform var(--transition-delay);
+     
+}
